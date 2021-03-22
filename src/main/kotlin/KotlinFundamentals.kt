@@ -58,7 +58,7 @@ fun main(){
     println()
 
 
-    // TODO: Excercise - Loops
+    // TODO: Exercise - Loops
     for (powerLevel in 1 until 10) {
         if (powerLevel == 9) {
             println("IT'S OVER 9000!!!")
@@ -79,18 +79,165 @@ fun main(){
     }
 
 
-     */
+
 
     // Functions
 
     myFunction("This is a parameter")
+
+    val result = addUp(5, 3)
+    println("result is $result")
+
+    println(avgNum(85.0, 15.0))
+
+
+
+
+
+    // Nullables
+
+//    var name: String = "Josh"
+    var nullableName: String? = "Josh"
+//    nullableName = null
+
+//    var length = name.length
+    var length2 = nullableName?.length // this is the same as the if statement below: If the nullableName variable is not null, then store the length in length2, otherwise store null in length2
+//    println(nullableName?.toLowerCase())
+//    nullableName?.let { println(it.length) }
+
+//    if (nullableName != null) {
+//        var lengthNull = nullableName.length
+//    } else {
+//        null
+//    }
+
+    // Elvis operator -> ?:
+    val name = nullableName ?: "Guest" // if nullableName is empty, then use the default value: "Guest"
+    println(name)
+
+    println(nullableName!!.toUpperCase())
+
+     */
+
+
+/*
+//    var josh: Person = Person("Josh", "G")
+//    var defaultPerson = Person()
+//    var oneNamePerson = Person(lastName = "Sauceda")
+
+//    var myPhone = MobilePhone("Android", "Samsung", "Galaxy S9+")
+//    var applePhone = MobilePhone("iOS", "Apple", "iPhone X")
+
+    var josh: Person = Person("Josh", "G", 31)
+    josh.hobby = "Skateboard"
+    josh.age = 32
+    println("Josh is ${josh.age} years old")
+    josh.stateHobby()
+
+    var john : Person = Person ("John", "Doe")
+    john.hobby = "Playing video games"
+    john.stateHobby()
+
+ */
+
+    /*
+// classes and objects practice
+    Person("Josh")
+    Person(23, "Josh")
+
+    val box1 = Box()
+    val box2 = Box()
+    val box3 = Box()
+
+    box1.height = 7
+    println("height: ${box1.height}")
+    box2.open()
+    box2.fillContents()
+
+     */
+
+
 }
+/*
+
+// Method - a Method is a function within a class
+// functions written outside of the Main function
 
 fun myFunction(message: String) {
     println(message)
 }
 
-fun addUp() {
+//  parameters&their Types     :Type of the return
+fun addUp(a: Int, b: Int) : Int {
+    return a + b
+}
+
+
+fun avgNum (num1: Double, num2: Double): Double {
+    return (num1+num2)/2
+}
+
+ */
+
+/*
+// CLASSES and INITIALIZERS
+
+class Person (firstName: String = "John", lastName: String = "Doe") { // constructors allow us to add values to our objects when we create an object of our class
+    // MEMBER variable - Properties
+    var age: Int? = null
+    var hobby : String = "Watching Netflix"
+    var firstName: String? = null
+
+
+
+    init {  // As soon as the Person class is called, the init will run
+        this.firstName = firstName
+        println("Initialized a new person object with firstName = $firstName and lastName = $lastName")
+    }
+
+    // Member Secondary Constructor
+    constructor(firstName: String, lastName: String, age: Int): this(firstName, lastName) {
+        this.age = age
+        println("Initialized a new person object with firstName = $firstName and lastName = $lastName and $age")
+    }
+
+    // Member functions - Methods
+    fun stateHobby(){
+        println("$firstName's hobby is $hobby")
+    }
+}
+
+ */
+
+/*
+class MobilePhone (osName: String, brand: String, model: String) {
+    init {
+        println("osName: $osName " +
+                "\nBrand: $brand " +
+                "\nModel: $model ")
+        println()
+    }
+}
+ */
+
+/*
+// Kotlin Classes, objects, data classes, constructors
+class Person (name: String) {
+
+    var age: Int = 0
+
+    init {
+        println("The name of Person is $name and age is $age")
+    }
+
+    constructor(age: Int, name: String) : this(name) { // secondary constructors must have the args of the first constructor. You can pass the inherited args by using ": this(args)"
+        println("secondary constructor :")
+        println("name: $name")
+        println("age: $age")
+    }
+
 
 }
 
+ */
+// data classes
