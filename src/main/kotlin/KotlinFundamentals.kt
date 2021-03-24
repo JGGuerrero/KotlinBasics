@@ -1,3 +1,5 @@
+import jdk.swing.interop.SwingInterOpUtils
+
 // test
 // from laptop
 
@@ -138,7 +140,15 @@ fun main(){
     john.hobby = "Playing video games"
     john.stateHobby()
 
- */
+    */
+
+    var myCar = Car()
+    myCar.owner
+    println(myCar.myBrand)
+    myCar.maxSpeed = 240
+    println("Max speed is ${myCar.maxSpeed}")
+    myCar.myModel
+    println(myCar.myModel)
 
     /*
 // classes and objects practice
@@ -179,9 +189,9 @@ fun avgNum (num1: Double, num2: Double): Double {
 
  */
 
-/*
-// CLASSES and INITIALIZERS
 
+// CLASSES and INITIALIZERS
+/*
 class Person (firstName: String = "John", lastName: String = "Doe") { // constructors allow us to add values to our objects when we create an object of our class
     // MEMBER variable - Properties
     var age: Int? = null
@@ -208,6 +218,30 @@ class Person (firstName: String = "John", lastName: String = "Doe") { // constru
 }
 
  */
+
+class Car() {
+    lateinit var owner: String
+
+    val myBrand: String = "BMW"
+        get() {         // custom getter
+            return field.toLowerCase()
+        }
+
+    var maxSpeed: Int = 250
+        set(value) {
+            field = if (value > 0) value else throw IllegalArgumentException("Max speed must be greater than zero")
+        }
+
+    var myModel: String = "M5"
+        private set // can only change the value of myModel within the class. cannot assign a new value outside of this class
+
+
+    init {
+        this.myModel = "M3" // myModel can be changed here, but not outside of this class since it is private set
+        owner = "Frank"
+    }
+}
+
 
 /*
 class MobilePhone (osName: String, brand: String, model: String) {
@@ -237,7 +271,11 @@ class Person (name: String) {
     }
 
 
+
+
 }
 
  */
+
+
 // data classes
