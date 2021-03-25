@@ -194,6 +194,7 @@ fun main(){
 
  */
 
+    /*
     val newPhone = MobilePhone("Android", "Samsung", "Galaxy S9+")
     val newPhone2 = MobilePhone("Apple", "iPhone", "X")
     println(newPhone.chargeBattery())
@@ -203,6 +204,21 @@ fun main(){
     println("--------------------")
     println(newPhone2.chargeBattery())
 
+     */
+
+
+    var audiA3 = Car("A3", "Audi", 200.0)
+    var teslaS = ElectricCar("S-model", "Tesla", 85.0, 240.0)
+    teslaS.chargeType = "Type2"
+    teslaS.extendRange(200.0)
+
+    // polymorphism
+    audiA3.drive(200.0)
+    teslaS.drive(200.0)
+    teslaS.drive()
+
+    teslaS.brake()
+    audiA3.brake()
 
 
 }
@@ -339,6 +355,73 @@ class Person (name: String) {
 
  */
 
-
+/*
 // data classes
 data class User(val id: Long, var name: String)
+
+ */
+
+// Inheritance
+// the class that inherits the features of another class is called the Sub-class or Child-class or Derived-class
+// the class whose features are inherited are called the Super-class or Parent-class or Base-class
+
+// Vehicle is the Super class, parent class, or base
+/*
+open class Vehicle(){ // class needs to be open in order to be inheritable
+    //properties
+    //methods
+}
+
+ */
+
+interface Drivable {
+    val maxSpeed: Double
+    fun drive(): String
+    fun brake(){
+        println("The drivable is braking")
+    }
+}
+
+
+// Car is the sub class, derived class, or child class of Vehicle
+// Car is also the super class, parent class, or base class of ElectricCar
+open class Car(val name: String, val brand: String, override val maxSpeed: Double) : Drivable{
+    open var range: Double = 0.0
+
+    fun extendRange(amount: Double){
+        if(amount > 0) {
+            range+= amount
+        }
+    }
+
+    open fun drive(distance: Double) {
+        println("Drove for $distance km")
+    }
+
+    override fun drive(): String {
+        return "Driving the interface drive"
+    }
+}
+// ElectricCar is the child class, sub class, or derived class of Car
+class ElectricCar(name: String, brand: String, batteryLife: Double, maxSpeed: Double) : Car(name, brand, maxSpeed){ // the sub class must have the parameters of the parent class, but can also have extra parameters
+
+    var chargeType: String = "Type1"
+    override var range = batteryLife * 6
+
+
+    override fun drive(distance: Double) {
+        println("Drove for $distance km on Electricity")
+
+    }
+
+    override fun drive(): String{
+        return "Drove for $range km on electricity"
+    }
+
+    override fun brake() {
+        super.brake()
+        println("Brake from inside electric car")
+    }
+}
+
+
