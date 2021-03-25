@@ -24,7 +24,7 @@ fun main(){
 
 
 
-    var user = User(firstName = "Donn", lastName = "Felker", isPlatinum = true)
+//    var user = User(firstName = "Donn", lastName = "Felker", isPlatinum = true)
 //    user.printFullName()
 //    user.updateName("Bob")
 //    user.printFullName()
@@ -35,7 +35,7 @@ fun main(){
 //    friend.printWithPrefix("Ms.")
 //    friend.firstNameLength()
 
-    var cousin = User("Nick")
+//    var cousin = User("Nick")
 //    cousin.printFullName()
 
 

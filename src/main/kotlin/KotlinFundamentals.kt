@@ -141,7 +141,7 @@ fun main(){
     john.stateHobby()
 
     */
-
+/*
     var myCar = Car()
     myCar.owner
     println(myCar.myBrand)
@@ -149,6 +149,8 @@ fun main(){
     println("Max speed is ${myCar.maxSpeed}")
     myCar.myModel
     println(myCar.myModel)
+
+ */
 
     /*
 // classes and objects practice
@@ -165,6 +167,42 @@ fun main(){
     box2.fillContents()
 
      */
+/*
+    // data classes
+    val user1 = User(1, "Josh")
+
+//    val name = user1.name
+//    println(name)
+    user1.name = "Michael"
+
+    val user2 = User(1, "Michael")
+
+    println(user1 == user2)
+
+    println("User Details: $user1")
+
+    val updatedUser = user1.copy(name="Josh")
+    println(updatedUser)
+    println(user1)
+
+    println(updatedUser.component1()) // prints first component: id
+    println(updatedUser.component2()) // prints second component: name
+
+    val(id, name) = updatedUser // this is the same as assigning two values separately
+    println(id)
+    println(name)
+
+ */
+
+    val newPhone = MobilePhone("Android", "Samsung", "Galaxy S9+")
+    val newPhone2 = MobilePhone("Apple", "iPhone", "X")
+    println(newPhone.chargeBattery())
+    println(newPhone.chargeBattery())
+    println(newPhone.chargeBattery())
+    println(newPhone.chargeBattery())
+    println("--------------------")
+    println(newPhone2.chargeBattery())
+
 
 
 }
@@ -218,7 +256,7 @@ class Person (firstName: String = "John", lastName: String = "Doe") { // constru
 }
 
  */
-
+/*
 class Car() {
     lateinit var owner: String
 
@@ -242,17 +280,41 @@ class Car() {
     }
 }
 
+ */
+
 
 /*
 class MobilePhone (osName: String, brand: String, model: String) {
+
+    private var battery: Double = (Math.random()*25)
+    private var batteryInt: Int = battery.toInt()
+
     init {
         println("osName: $osName " +
                 "\nBrand: $brand " +
                 "\nModel: $model ")
         println()
     }
+
+    fun chargeBattery(){ // TODO: Lesson 58 Challenge charge battery
+        println("The current charge of the phone is: $batteryInt%")
+        if (this.batteryInt > 70 && this.batteryInt != 100) {
+            var charge = 100 - this.batteryInt
+            this.batteryInt += charge
+            println("The phone was charged by $charge%")
+            println("The phone now has ${this.batteryInt}% battery")
+        } else if (this.batteryInt == 100){
+            println("The battery is already at ${this.batteryInt}%. No need to charge.")
+        } else {
+            this.batteryInt += 30
+            println("The phone was charged by 30%")
+            println("The phone now has ${this.batteryInt}% battery")
+        }
+    }
 }
+
  */
+
 
 /*
 // Kotlin Classes, objects, data classes, constructors
@@ -279,3 +341,4 @@ class Person (name: String) {
 
 
 // data classes
+data class User(val id: Long, var name: String)
