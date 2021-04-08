@@ -54,7 +54,7 @@ fun main(){
 
     val elephant = Elephant("Gray", "Africa", 2500.0, 29.0)
 
-    val mammal = Mammal("John", "China", 165.0, 15.0) // cannot use since it is an abstract class
+    // val mammal = Mammal("John", "China", 165.0, 15.0) // cannot use since it is an abstract class
 
     human.run()
     elephant.run()
